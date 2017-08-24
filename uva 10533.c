@@ -1,0 +1,40 @@
+#include<stdio.h>
+int main()
+{
+	int number1,number2,is_prime,test_case,t=1,j,num,i,sum,p,count,prime;
+	scanf("%d",&test_case);
+	while(t<=test_case){
+		count=0;
+		scanf("%d%d",&number1,&number2);
+		for(i=number1;i<=number2;i++){
+			is_prime=0;
+			for(j=2;j<=i/2;j++){
+				if(i%j==0){
+					is_prime=1;
+					break;
+				}
+			}
+			if(is_prime==0){
+					num=i;
+					sum=0;
+					while(num!=0){
+						sum+=num%10;
+						num/=10;
+					}
+				 prime=0;
+				for(p=2;p<=sum/2;p++){
+					if(sum%p==0){
+						prime=1;
+						break;
+					}
+				}
+				if(prime==0){
+					count++;
+				}
+			}
+		}
+		printf("%d\n",count);
+		t++;
+	}
+	return 0;
+}
